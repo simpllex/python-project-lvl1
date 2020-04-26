@@ -1,2 +1,5 @@
 .DS_Store
-.vscode
+.vscode/
+.venv/
+dist/
+simpllex_brain_games.egg-info/
