@@ -34,5 +34,3 @@ def even_game(name):
             break
     if count_answer == 3:
         print("Congratulations, {}!".format(name))
-
-        
