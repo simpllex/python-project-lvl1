@@ -1,9 +1,9 @@
-from cli import welcome_user
+import cli
 
 
 def greet():
     print("Welcome to the Brain Games!")
-    welcome_user()
+    cli.welcome_user()
 
 
 def main():
