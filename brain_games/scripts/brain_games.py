@@ -1,4 +1,4 @@
-import cli
+from brain_games import cli
 
 
 def greet():
