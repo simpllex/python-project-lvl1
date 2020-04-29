@@ -18,15 +18,15 @@ def calc(name):
         random_operation = randint(1, 3)
         if random_operation == 1:
             print("Question: {} + {}".format(first_random_number,
-                                            second_random_number))
+                                             second_random_number))
             correct_answer = first_random_number + second_random_number
         elif random_operation == 2:
             print("Question: {} - {}".format(first_random_number,
-                                            second_random_number))
+                                             second_random_number))
             correct_answer = first_random_number - second_random_number
         else:
             print("Question: {} * {}".format(first_random_number,
-                                            second_random_number))
+                                             second_random_number))
             correct_answer = first_random_number * second_random_number
         user_answer = prompt.string('Your answer: ')
         if user_answer == str(correct_answer):
