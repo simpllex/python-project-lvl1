@@ -24,7 +24,8 @@ def gcd(name):
     while count_answer < 3:
         first_random_number = randint(0, 100)
         second_random_number = randint(0, 100)
-        print("Question: {} {}".format(first_random_number, second_random_number))
+        print("Question: {} {}".format(first_random_number,
+                                       second_random_number))
         correct_answer = gcd_evclid(first_random_number, second_random_number)
         user_answer = prompt.integer('Your answer: ')
         if user_answer == correct_answer:
