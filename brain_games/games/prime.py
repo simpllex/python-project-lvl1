@@ -14,7 +14,7 @@ def rules_game():
 def isPrime(number):
     if number < 2:
         return "no"
-    if number ==  2:
+    if number == 2:
         return "yes"
     limit = int(math.sqrt(number))
     i = 2
