@@ -2,7 +2,7 @@ from brain_games.games import gcd
 
 
 def main():
-    name = gcd.rules_game()
+    name = gcd.welcome_user()
     gcd.gcd(name)
 
 

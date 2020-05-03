@@ -3,7 +3,7 @@ import math
 import prompt
 
 
-def rules_game():
+def welcome_user():
     print('Welcome to the Brain Games!')
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
     name = prompt.string('May I have your name? ')
@@ -25,19 +25,20 @@ def isPrime(number):
     return "yes"
 
 
-def user_quest(name):
-    count_answer = 0
-    while count_answer < 3:
+def play_game(name):
+    answer_count = 0
+    while answer_count < 3:
         random_number = randint(0, 100)
         correct_answer = isPrime(random_number)
         user_answer = prompt.string("Question: {} ".format(random_number))
+        user_answer = user_answer.lower()
         if user_answer == correct_answer:
             print('Correct!')
-            count_answer += 1
+            answer_count += 1
         else:
             print("'{}' is wrong answer ;(. Correct answer was '{}'.\n"
                   "Let's try again, {}!".format(user_answer,
                                                 correct_answer, name))
             break
-    if count_answer == 3:
+    if answer_count == 3:
         print("Congratulations, {}!".format(name))

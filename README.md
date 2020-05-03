@@ -4,4 +4,4 @@
 
 [![Build Status](https://travis-ci.org/simpllex/python-project-lvl1.svg?branch=master)](https://travis-ci.org/simpllex/python-project-lvl1)
 
-[![asciicast](https://asciinema.org/a/sJ1O6kUsJUlBAi3rQibzHqg5g.svg)](https://asciinema.org/a/sJ1O6kUsJUlBAi3rQibzHqg5g)
+[[![asciicast](https://asciinema.org/a/0ZqLQnCMbLLVSBsgafRRHz7cA.svg)](https://asciinema.org/a/0ZqLQnCMbLLVSBsgafRRHz7cA)

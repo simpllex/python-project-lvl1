@@ -5,7 +5,7 @@ import prompt
 LENGHT_PROGRESSION = 10
 
 
-def rules_game():
+def welcome_user():
     print('Welcome to the Brain Games!')
     print('What number is missing in the progression?')
     name = prompt.string('May I have your name? ')
@@ -13,7 +13,7 @@ def rules_game():
     return name
 
 
-def progress():
+def make_progression():
     number_start_proggression = randint(0, 100)
     number_step_progression = randint(0, 25)
     quest_progression = list(range(number_start_proggression,
@@ -24,7 +24,7 @@ def progress():
     return quest_progression
 
 
-def missing_number():
+def skip_number():
     return randint(0, LENGHT_PROGRESSION)
 
 
@@ -39,21 +39,22 @@ def missing(quest_progression, number):
     return string_progression
 
 
-def quest(name):
-    count_answer = 0
-    while count_answer < 3:
-        progression = progress()
-        m_number = missing_number()
-        correct_answer = progression[m_number]
+def play_game(name):
+    answer_count = 0
+    while answer_count < 3:
+        progression = make_progression()
+        missed_number = skip_number()
+        correct_answer = progression[missed_number]
         user_answer = prompt.integer("Question: {}".
-                                     format(missing(progression, m_number)))
+                                     format(missing(progression,
+                                            missed_number)))
         if user_answer == correct_answer:
             print('Correct!')
-            count_answer += 1
+            answer_count += 1
         else:
             print("'{}' is wrong answer ;(. Correct answer was '{}'.\n"
                   "Let's try again, {}!".format(user_answer,
                                                 correct_answer, name))
             break
-    if count_answer == 3:
+    if answer_count == 3:
         print("Congratulations, {}!".format(name))
