@@ -1,16 +1,8 @@
+from brain_games.common import welcome_user, count_answer
 from random import randint
-import prompt
 
 
 LENGHT_PROGRESSION = 10
-
-
-def welcome_user():
-    print('Welcome to the Brain Games!')
-    print('What number is missing in the progression?')
-    name = prompt.string('May I have your name? ')
-    print("Hello, {}!".format(name))
-    return name
 
 
 def make_progression():
@@ -39,22 +31,17 @@ def missing(quest_progression, number):
     return string_progression
 
 
-def play_game(name):
-    answer_count = 0
-    while answer_count < 3:
-        progression = make_progression()
-        missed_number = skip_number()
-        correct_answer = progression[missed_number]
-        user_answer = prompt.integer("Question: {}".
-                                     format(missing(progression,
-                                            missed_number)))
-        if user_answer == correct_answer:
-            print('Correct!')
-            answer_count += 1
-        else:
-            print("'{}' is wrong answer ;(. Correct answer was '{}'.\n"
-                  "Let's try again, {}!".format(user_answer,
-                                                correct_answer, name))
-            break
-    if answer_count == 3:
-        print("Congratulations, {}!".format(name))
+def game():
+    progression = make_progression()
+    missed_number = skip_number()
+    correct_answer = progression[missed_number]
+    q = "Question: {}".format(missing(progression, missed_number))
+    return (q, str(correct_answer))
+
+
+def start():
+    name = welcome_user('What number is missing in the progression?')
+    list_correct_answer = []
+    for i in range(3):
+        list_correct_answer.append(game())
+    count_answer(name, list_correct_answer)

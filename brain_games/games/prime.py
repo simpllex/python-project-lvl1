@@ -1,14 +1,6 @@
+from brain_games.common import welcome_user, count_answer
 from random import randint
 import math
-import prompt
-
-
-def welcome_user():
-    print('Welcome to the Brain Games!')
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
-    name = prompt.string('May I have your name? ')
-    print("Hello, {}!".format(name))
-    return name
 
 
 def isPrime(number):
@@ -25,20 +17,17 @@ def isPrime(number):
     return "yes"
 
 
-def play_game(name):
-    answer_count = 0
-    while answer_count < 3:
-        random_number = randint(0, 100)
-        correct_answer = isPrime(random_number)
-        user_answer = prompt.string("Question: {} ".format(random_number))
-        user_answer = user_answer.lower()
-        if user_answer == correct_answer:
-            print('Correct!')
-            answer_count += 1
-        else:
-            print("'{}' is wrong answer ;(. Correct answer was '{}'.\n"
-                  "Let's try again, {}!".format(user_answer,
-                                                correct_answer, name))
-            break
-    if answer_count == 3:
-        print("Congratulations, {}!".format(name))
+def game():
+    random_number = randint(0, 100)
+    correct_answer = isPrime(random_number)
+    q = "Question: {} ".format(random_number)
+    return (q, correct_answer)
+
+
+def start():
+    name = welcome_user('Answer "yes" if given number is prime.'
+                        'Otherwise answer "no".')
+    list_correct_answer = []
+    for i in range(3):
+        list_correct_answer.append(game())
+    count_answer(name, list_correct_answer)

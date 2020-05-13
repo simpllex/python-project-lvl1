@@ -1,36 +1,19 @@
+from brain_games.common import welcome_user, count_answer
 from random import randint
-import prompt
 
 
-def welcome_user():
-    print('Welcome to the Brain Games!')
-    print('Answer "yes" if number even otherwise answer "no".')
-    name = prompt.string('May I have your name? ')
-    print("Hello, {}!".format(name))
-    return name
-
-
-def check_random_number():
+def game():
     num = randint(1, 1000)
-    print("Question: {}".format(num))
+    q = "Question: {}".format(num)
     if num % 2 == 1:
-        return "no"
+        return (q, "no")
     else:
-        return "yes"
+        return (q, "yes")
 
 
-def play_game(name):
-    answer_count = 0
-    while answer_count < 3:
-        quest = check_random_number()
-        answer = prompt.string('Your answer: ').lower()
-        if answer == quest:
-            print("Correct!")
-            answer_count += 1
-        else:
-            print("'{}' is wrong answer ;(."
-                  "Correct answer was 'no'.".format(answer))
-            print("Let's try again, {}!".format(name))
-            break
-    if answer_count == 3:
-        print("Congratulations, {}!".format(name))
+def start():
+    name = welcome_user('Answer "yes" if number even otherwise answer "no".')
+    list_correct_answer = []
+    for i in range(3):
+        list_correct_answer.append(game())
+    count_answer(name, list_correct_answer)
