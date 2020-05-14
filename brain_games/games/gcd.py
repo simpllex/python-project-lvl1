@@ -1,4 +1,4 @@
-from brain_games.common import welcome_user, count_answer, launch
+from brain_games.common import launch
 from random import randint
 
 
@@ -25,5 +25,7 @@ def list_correct():
         list_correct_answer.append(game())
     return list_correct_answer
 
+
 def start():
-    launch('Find the greatest common divisor of given numbers.', list_correct())
+    launch('Find the greatest common divisor of given numbers.',
+           list_correct())

@@ -1,4 +1,4 @@
-from brain_games.common import welcome_user, count_answer, launch
+from brain_games.common import launch
 from random import randint
 
 
@@ -24,6 +24,7 @@ def list_correct():
     for i in range(3):
         list_correct_answer.append(game())
     return list_correct_answer
+
 
 def start():
     launch('What is the result of the expression?', list_correct())
