@@ -25,3 +25,8 @@ def count_answer(name, list_correct_answer):
             break
     if answer_count == 3:
         print("Congratulations, {}!".format(name))
+
+
+def launch(game_name, list_correct_answer):
+    name = welcome_user(game_name)
+    count_answer(name, list_correct_answer)

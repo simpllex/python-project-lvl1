@@ -1,4 +1,4 @@
-from brain_games.common import welcome_user, count_answer
+from brain_games.common import welcome_user, count_answer, launch
 from random import randint
 import math
 
@@ -24,10 +24,11 @@ def game():
     return (q, correct_answer)
 
 
-def start():
-    name = welcome_user('Answer "yes" if given number is prime.'
-                        'Otherwise answer "no".')
+def list_correct():
     list_correct_answer = []
     for i in range(3):
         list_correct_answer.append(game())
-    count_answer(name, list_correct_answer)
+    return list_correct_answer
+
+def start():
+    launch('Answer "yes" if given number is prime.Otherwise answer "no".', list_correct())
