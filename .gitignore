@@ -4,3 +4,4 @@
 .venv
 dist/
 simpllex_brain_games.egg-info/
+__pycache__/
