@@ -4,6 +4,7 @@ from random import randint
 
 GAME_RULES = 'Answer "yes" if number even otherwise answer "no".'
 
+
 def play():
     num = randint(1, 1000)
     q = "Question: {}".format(num)

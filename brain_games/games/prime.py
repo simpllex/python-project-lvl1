@@ -5,7 +5,6 @@ import math
 GAME_RULES = 'Answer "yes" if given number is prime.Otherwise answer "no".'
 
 
-
 def isPrime(number):
     if number < 2:
         return False

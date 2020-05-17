@@ -13,8 +13,8 @@ def play():
     oper = choice(operation)
     f = operator.methodcaller(oper, first_random_number, second_random_number)
     correct_answer = f(operator)
-    question = "{} {} {}".format(first_random_number, oper, second_random_number)
-    return (question, str(correct_answer))
+    q = "{} {} {}".format(first_random_number, oper, second_random_number)
+    return (q, str(correct_answer))
 
 
 def list_correct():
