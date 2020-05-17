@@ -1,8 +1,9 @@
-from brain_games.common import launch
+from brain_games.common import launch, NUMBER_OF_ROUNDS
 from random import randint
 
 
 LENGHT_PROGRESSION = 10
+GAME_RULES = 'What is the result of the expression?'
 
 
 def make_progression():
@@ -31,20 +32,20 @@ def missing(quest_progression, number):
     return string_progression
 
 
-def game():
+def play():
     progression = make_progression()
     missed_number = skip_number()
     correct_answer = progression[missed_number]
-    q = "Question: {}".format(missing(progression, missed_number))
+    q = missing(progression, missed_number)
     return (q, str(correct_answer))
 
 
 def list_correct():
     list_correct_answer = []
-    for i in range(3):
-        list_correct_answer.append(game())
+    for i in range(NUMBER_OF_ROUNDS):
+        list_correct_answer.append(play())
     return list_correct_answer
 
 
 def start():
-    launch('What is the result of the expression?', list_correct())
+    launch(GAME_RULES, list_correct())

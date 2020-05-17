@@ -1,30 +1,28 @@
-from brain_games.common import launch
-from random import randint
+from brain_games.common import launch, NUMBER_OF_ROUNDS
+from random import randint, choice
+import operator
 
 
-def game():
+GAME_RULES = 'What is the result of the expression?'
+
+
+def play():
     first_random_number = randint(0, 100)
     second_random_number = randint(0, 100)
-    random_operation = randint(1, 3)
-    if random_operation == 1:
-        q = "Question: {} + {}"
-        correct_answer = (first_random_number + second_random_number)
-    elif random_operation == 2:
-        q = "Question: {} - {}"
-        correct_answer = (first_random_number - second_random_number)
-    else:
-        q = "Question: {} * {}"
-        correct_answer = (first_random_number * second_random_number)
-    return (q.format(first_random_number, second_random_number),
-            str(correct_answer))
+    operation = ['add', 'sub', 'mul']
+    oper = choice(operation)
+    f = operator.methodcaller(oper, first_random_number, second_random_number)
+    correct_answer = f(operator)
+    question = "{} {} {}".format(first_random_number, oper, second_random_number)
+    return (question, str(correct_answer))
 
 
 def list_correct():
     list_correct_answer = []
-    for i in range(3):
-        list_correct_answer.append(game())
+    for i in range(NUMBER_OF_ROUNDS):
+        list_correct_answer.append(play())
     return list_correct_answer
 
 
 def start():
-    launch('What is the result of the expression?', list_correct())
+    launch(GAME_RULES, list_correct())

@@ -1,5 +1,7 @@
-from brain_games.common import launch
+from brain_games.common import launch, NUMBER_OF_ROUNDS
 from random import randint
+
+GAME_RULES = 'Find the greatest common divisor of given numbers.'
 
 
 def find_gcd_evclid(a, b):
@@ -11,7 +13,7 @@ def find_gcd_evclid(a, b):
     return (a + b)
 
 
-def game():
+def play():
     first_random_number = randint(0, 100)
     second_random_number = randint(0, 100)
     q = "Question: {} {}".format(first_random_number, second_random_number)
@@ -21,11 +23,11 @@ def game():
 
 def list_correct():
     list_correct_answer = []
-    for i in range(3):
-        list_correct_answer.append(game())
+    for i in range(NUMBER_OF_ROUNDS):
+        list_correct_answer.append(play())
     return list_correct_answer
 
 
 def start():
-    launch('Find the greatest common divisor of given numbers.',
+    launch(GAME_RULES,
            list_correct())

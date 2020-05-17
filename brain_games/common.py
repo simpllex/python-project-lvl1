@@ -1,9 +1,15 @@
 import prompt
 
 
+NUMBER_OF_ROUNDS = 3
+
+
 def welcome_user(game_name):
     print('Welcome to the Brain Games!')
     print(game_name)
+
+
+def greeting():
     name = prompt.string('May I have your name? ')
     print("Hello, {}!".format(name))
     return name
@@ -12,7 +18,7 @@ def welcome_user(game_name):
 def count_answer(name, list_correct_answer):
     answer_count = 0
     for i in range(len(list_correct_answer)):
-        print(list_correct_answer[i][0])
+        print("Question: ", list_correct_answer[i][0])
         correct_answer = list_correct_answer[i][1]
         user_answer = prompt.string('Your answer: ')
         if user_answer == correct_answer:
@@ -28,5 +34,6 @@ def count_answer(name, list_correct_answer):
 
 
 def launch(game_name, list_correct_answer):
-    name = welcome_user(game_name)
+    welcome_user(game_name)
+    name = greeting()
     count_answer(name, list_correct_answer)
