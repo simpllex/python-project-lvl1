@@ -6,6 +6,11 @@ import operator
 GAME_RULES = 'What is the result of the expression?'
 
 
+OPERATION = {'add': '+',
+             'sub': '-',
+             'mul': '*'}
+
+
 def play():
     first_random_number = randint(0, 100)
     second_random_number = randint(0, 100)
@@ -13,7 +18,8 @@ def play():
     oper = choice(operation)
     f = operator.methodcaller(oper, first_random_number, second_random_number)
     correct_answer = f(operator)
-    q = "{} {} {}".format(first_random_number, oper, second_random_number)
+    oper_in_q = OPERATION.get(oper)
+    q = "{} {} {}".format(first_random_number, oper_in_q, second_random_number)
     return (q, str(correct_answer))
 
 
