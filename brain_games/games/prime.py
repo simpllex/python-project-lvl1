@@ -1,4 +1,3 @@
-from brain_games.common import launch, NUMBER_OF_ROUNDS
 from random import randint
 import math
 
@@ -27,15 +26,3 @@ def prepare_question_and_answer():
     else:
         correct_answer = "no"
     return (random_number, correct_answer)
-
-
-def compile_list():
-    list_correct_answer = []
-    for i in range(NUMBER_OF_ROUNDS):
-        list_correct_answer.append(prepare_question_and_answer())
-    return list_correct_answer
-
-
-def start():
-    launch(GAME_DESCRIPTION,
-           compile_list())

@@ -1,4 +1,3 @@
-from brain_games.common import launch, NUMBER_OF_ROUNDS
 from random import randint
 
 
@@ -25,14 +24,3 @@ def prepare_question_and_answer():
     question = progression[:]
     question[hidden_index] = '..'
     return (' '.join(str(x) for x in question), str(correct_answer))
-
-
-def compile_list():
-    list_correct_answer = []
-    for i in range(NUMBER_OF_ROUNDS):
-        list_correct_answer.append(prepare_question_and_answer())
-    return list_correct_answer
-
-
-def start():
-    launch(GAME_DESCRIPTION, compile_list())

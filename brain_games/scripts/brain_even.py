@@ -1,8 +1,9 @@
 from brain_games.games import even
+from brain_games.common import launch
 
 
 def main():
-    even.start()
+    launch(even.GAME_DESCRIPTION, even)
 
 
 if __name__ == '__main__':
