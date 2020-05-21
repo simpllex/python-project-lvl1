@@ -4,36 +4,28 @@ import prompt
 NUMBER_OF_ROUNDS = 3
 
 
-def welcome_user(game_name):
-    print('Welcome to the Brain Games!')
-    print(game_name)
-
-
-def greeting():
+def ask_name():
     name = prompt.string('May I have your name? ')
-    print("Hello, {}!".format(name))
     return name
 
 
 def count_answer(name, list_correct_answer):
-    answer_count = 0
-    for i in range(len(list_correct_answer)):
-        print("Question: ", list_correct_answer[i][0])
-        correct_answer = list_correct_answer[i][1]
+    for question, answer in list_correct_answer:
+        print("Question: ", question)
+        correct_answer = answer
         user_answer = prompt.string('Your answer: ')
-        if user_answer == correct_answer:
-            print('Correct!')
-            answer_count += 1
-        else:
-            print("'{}' is wrong answer ;(. Correct answer was '{}'.\n"
-                  "Let's try again, {}!".format(user_answer,
-                                                correct_answer, name))
-            break
-    if answer_count == 3:
-        print("Congratulations, {}!".format(name))
+        if user_answer != correct_answer:
+            print("'{}' is wrong answer ;(. Correct answer was '{}'."
+                  .format(user_answer, correct_answer))
+            print("Let's try again, {}!".format(name))
+            return
+        print('Correct!')
+    print("Congratulations, {}!".format(name))
 
 
 def launch(game_name, list_correct_answer):
-    welcome_user(game_name)
-    name = greeting()
+    print('Welcome to the Brain Games!')
+    print(game_name)
+    name = ask_name()
+    print("Hello, {}!".format(name))
     count_answer(name, list_correct_answer)
