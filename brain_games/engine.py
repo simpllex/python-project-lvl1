@@ -9,10 +9,10 @@ def ask_name():
     return name
 
 
-def count_answer(name, list_correct_answer):
-    for question, answer in list_correct_answer:
+def play_game(name, game):
+    for i in range(NUMBER_OF_ROUNDS):
+        question, correct_answer = game.prepare_question_and_answer()
         print("Question: ", question)
-        correct_answer = answer
         user_answer = prompt.string('Your answer: ')
         if user_answer != correct_answer:
             print("'{}' is wrong answer ;(. Correct answer was '{}'."
@@ -23,16 +23,9 @@ def count_answer(name, list_correct_answer):
     print("Congratulations, {}!".format(name))
 
 
-def compile_list(game):
-    list_correct_answer = []
-    for i in range(NUMBER_OF_ROUNDS):
-        list_correct_answer.append(game.prepare_question_and_answer())
-    return list_correct_answer
-
-
-def launch(game_rules, game=None):
+def launch(game):
     print('Welcome to the Brain Games!')
-    print(game_rules)
+    print(game.GAME_DESCRIPTION)
     name = ask_name()
     print("Hello, {}!".format(name))
-    count_answer(name, compile_list(game))
+    play_game(name, game)

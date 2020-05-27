@@ -5,7 +5,7 @@ GAME_DESCRIPTION = 'Answer "yes" if given number is prime.'\
                    'Otherwise answer "no".'
 
 
-def isPrime(number):
+def is_prime(number):
     if number < 2:
         return False
     if number == 2:
@@ -20,9 +20,9 @@ def isPrime(number):
 
 
 def prepare_question_and_answer():
-    random_number = randint(0, 100)
-    if isPrime(random_number):
+    question = randint(0, 100)
+    if is_prime(question):
         correct_answer = "yes"
     else:
         correct_answer = "no"
-    return (random_number, correct_answer)
+    return (question, correct_answer)

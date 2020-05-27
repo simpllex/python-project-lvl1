@@ -1,9 +1,9 @@
 from brain_games.games import progression
-from brain_games.common import launch
+from brain_games.engine import launch
 
 
 def main():
-    launch(progression.GAME_DESCRIPTION, progression)
+    launch(progression)
 
 
 if __name__ == '__main__':
